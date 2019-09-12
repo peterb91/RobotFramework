@@ -10,4 +10,7 @@ Verify Page Loaded
 
 
 Validate Page Content
-    element text should be  ${TEAM_HEADER_LABEL}  OUR AMAZING TEAM
+    # Compare case insensitive to reflect all browsers conditions
+    # element text should be  ${TEAM_HEADER_LABEL}  Our Amazing Team
+    ${ElementText} =  get text  ${TEAM_HEADER_LABEL}
+    should be equal as strings  ${ElementText}  Our Amazing Team  ignore_case=True
